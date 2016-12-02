@@ -46,5 +46,14 @@ public class MainActivity extends AppCompatActivity {
                 chm1.setTextColor(Color.RED);//실수로 2과정에 3까지 넣었습니다
             }
         });
+        rbtn1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    cdv1.setVisibility(View.VISIBLE);
+                    tp1.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
     }
-}
+    }
