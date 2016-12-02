@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 chm1.setBase(SystemClock.elapsedRealtime());
                 chm1.start();
-                chm1.setTextColor(Color.RED);
+                chm1.setTextColor(Color.RED);//실수로 2과정에 3까지 넣었습니다
             }
         });
     }
