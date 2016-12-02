@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rbtn1, rbtn2;
     TimePicker tp1;
     TextView tv1;
+    String cdv,tp,date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         rbtn2 = (RadioButton) findViewById(R.id.rbtn2);
         tp1 = (TimePicker) findViewById(R.id.timePicker);
         tv1 = (TextView) findViewById(R.id.tv1);
+        cdv = "";
+        tp = "";
+        date = "";
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +66,28 @@ public class MainActivity extends AppCompatActivity {
                     cdv1.setVisibility(View.INVISIBLE);
                     tp1.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+        cdv1.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView cal_view, int year, int month, int day){
+                cdv = year+"년"+month+"월"+day+"일";
+            }
+        });
+        tp1.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hour, int minute) {
+            tp = hour+"시"+minute+"분";
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                date = cdv+tp;
+                tv1.setText(date+"예약됨");
+                chm1.stop();
+                chm1.setTextColor(Color.BLUE);
+
             }
         });
     }
